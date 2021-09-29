@@ -13,8 +13,8 @@ function App() {
 				<Router>
 					<nav>
 						<ul>
-							<li><NavLink to="/">Home</NavLink></li>
-							<li><NavLink to="/settings">Settings</NavLink></li>
+							<li><NavLink activeClassName="selected" exact={true} to="/">Home</NavLink></li>
+							<li><NavLink activeClassName="selected" to="/settings">Settings</NavLink></li>
 						</ul>
 					</nav>
 					<Switch>

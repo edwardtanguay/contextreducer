@@ -4,18 +4,14 @@ import { ThemeContext } from '../themeContext';
 const Home = () => {
 	const { theme, setTheme } = useContext(ThemeContext);
 
-	useEffect(() => {
-	setTheme('ok2');
-	}, []);
-
-	// const changeIt = async () => {
-	// 	console.log('in here');
-	// 	setTheme(n => 'changed here');
-	// }
 	return (
 		<>
-			<h2>Home</h2>
-			<div onClick={async () => setTheme('newone')} >Theme: {theme}</div>
+			<div className="page pageHome">
+				<p>
+				Welcome to this site.
+				</p>
+				<p>The theme is now: {theme}</p>
+		</div>
 		</>
 	)
 }
