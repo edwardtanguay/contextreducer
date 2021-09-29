@@ -1,19 +1,30 @@
-import { useEffect, useState, useReducer } from 'react';
+import { useEffect, useReducer } from 'react';
 import './App.scss';
 import Home from './components/Home';
 import Settings from './components/Settings';
 import { ThemeContext } from './themeContext';
 import { BrowserRouter as Router, NavLink, Switch, Route } from 'react-router-dom';
 
-const initialState = { theme: 'dark' };
+const initialState = {
+	theme: 'dark',
+	language: 'english'
+};
 const reducer = (state, action) => {
 	switch (action.type) {
 		case 'dark':
 			return { theme: 'dark' };
 		case 'light':
 			return { theme: 'light' };
+		case 'english':
+			return { language: 'english' };
+		case 'german':
+			return { language: 'german' };
+		case 'john':
+			return { language: 'english', theme: 'light' };
+		case 'hans':
+			return { language: 'german', theme: 'dark' };
 		default:
-			return { theme: 'dark' };
+			return initialState;
 	}
 }
 
@@ -31,7 +42,7 @@ function App() {
 
 	return (
 		<div className="App">
-			<ThemeContext.Provider value={{ state, dispatch}}>
+			<ThemeContext.Provider value={{ state, dispatch }}>
 				<Router>
 					<nav>
 						<ul>
