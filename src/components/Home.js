@@ -1,8 +1,8 @@
-import { useEffect, useContext } from 'react';
+import { useContext } from 'react';
 import { ThemeContext } from '../themeContext';
 
 const Home = () => {
-	const { theme, setTheme } = useContext(ThemeContext);
+	const {state, dispatch  } = useContext(ThemeContext);
 
 	return (
 		<>
@@ -10,7 +10,7 @@ const Home = () => {
 				<p>
 				Welcome to this site.
 				</p>
-				<p>The theme is now: {theme}</p>
+				<p>The theme is now: {state.theme}</p>
 		</div>
 		</>
 	)

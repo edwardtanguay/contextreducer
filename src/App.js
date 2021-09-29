@@ -1,25 +1,37 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useReducer } from 'react';
 import './App.scss';
 import Home from './components/Home';
 import Settings from './components/Settings';
 import { ThemeContext } from './themeContext';
 import { BrowserRouter as Router, NavLink, Switch, Route } from 'react-router-dom';
 
+const initialState = { theme: 'dark' };
+const reducer = (state, action) => {
+	switch (action.type) {
+		case 'dark':
+			return { theme: 'dark' };
+		case 'light':
+			return { theme: 'light' };
+		default:
+			return { theme: 'dark' };
+	}
+}
 
 function App() {
-	const [theme, setTheme] = useState('dark');
+	const [state, dispatch] = useReducer(reducer, initialState);
+	// const [theme, setTheme] = useState('dark');
 
 	useEffect(() => {
-		if (theme === 'dark') {
+		if (state.theme === 'dark') {
 			document.body.style = 'background: #333;color: #fff;';
 		} else {
 			document.body.style = 'background: #fff;color: black;';
 		}
-	}, [theme]);
+	}, [state.theme]);
 
 	return (
 		<div className="App">
-			<ThemeContext.Provider value={{ theme, setTheme }}>
+			<ThemeContext.Provider value={{ state, dispatch}}>
 				<Router>
 					<nav>
 						<ul>
