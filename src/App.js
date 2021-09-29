@@ -12,13 +12,13 @@ const initialState = {
 const reducer = (state, action) => {
 	switch (action.type) {
 		case 'dark':
-			return { theme: 'dark' };
+			return {...state, theme: 'dark' };
 		case 'light':
-			return { theme: 'light' };
+			return {...state, theme: 'light'};
 		case 'english':
-			return { language: 'english' };
+			return {...state, language: 'english' };
 		case 'german':
-			return { language: 'german' };
+			return {...state, language: 'german'};
 		case 'john':
 			return { language: 'english', theme: 'light' };
 		case 'hans':
@@ -30,7 +30,6 @@ const reducer = (state, action) => {
 
 function App() {
 	const [state, dispatch] = useReducer(reducer, initialState);
-	// const [theme, setTheme] = useState('dark');
 
 	useEffect(() => {
 		if (state.theme === 'dark') {
