@@ -4,6 +4,7 @@ import Home from './components/Home';
 import Settings from './components/Settings';
 import { ThemeContext } from './themeContext';
 import { BrowserRouter as Router, NavLink, Switch, Route } from 'react-router-dom';
+import LanguageManager from './classes/languageManager';
 
 const initialState = {
 	theme: 'dark',
@@ -30,6 +31,9 @@ const reducer = (state, action) => {
 
 function App() {
 	const [state, dispatch] = useReducer(reducer, initialState);
+	const text = (idCode) => {
+		return LanguageManager.getText(state.language, idCode);
+	}
 
 	useEffect(() => {
 		if (state.theme === 'dark') {
@@ -45,8 +49,8 @@ function App() {
 				<Router>
 					<nav>
 						<ul>
-							<li><NavLink activeClassName="selected" exact={true} to="/">Home</NavLink></li>
-							<li><NavLink activeClassName="selected" to="/settings">Settings</NavLink></li>
+							<li><NavLink activeClassName="selected" exact={true} to="/">{text('home')}</NavLink></li>
+							<li><NavLink activeClassName="selected" to="/settings">{text('settings')}</NavLink></li>
 						</ul>
 					</nav>
 					<Switch>

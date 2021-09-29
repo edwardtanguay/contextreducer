@@ -28,6 +28,26 @@ class LanguageManager {
 			german: {
 				english: 'German',
 				german: 'Deutsch'
+			},
+			home: {
+				english: 'Home',
+				german: 'Startseite'
+			},
+			settings: {
+				english: 'Settings',
+				german: 'Eigenschaften'
+			},
+			welcomeToSite: {
+				english: 'Welcome to this site.',
+				german: 'Willkommen auf dieser Website.'
+			},
+			themeIsNow: {
+				english: 'The theme is now',
+				german: 'Das Farbthema ist jetzt'
+			},
+			languageIsNow: {
+				english: 'The language is now',
+				german: 'Die Sprache is jetzt'
 			}
 		}
 		if (texts.hasOwnProperty(idCode)) {
